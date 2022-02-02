@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="image-panel"></div>
+    <div class="wrapper">
+        <header>Fake Details Generator</header>
+        <div class="name">
+            <span>Name - John Doe</span>
+        </div>
+        <div class="email-address">
+            <span>Email - johndoe@gmail.com</span>
+        </div>
+        <div class="phone-number">
+            <span>Phone - 522-34567890</span>
+        </div>
+        <div class="phone-number">
+            <span id="country" >Country - Polar Region</span>
+        </div>
+        <div  class="phone-number">
+            <span id="age" >Age - 12</span>
+        </div>
+        <button id="generate">Generate</button>
+    </div>
+
+    <p>Click The Generate Button To Generate FAKE Details</p>
+</body>
+<script>
+   const name = document.querySelector(".wrapper .name span"),
+   email = document.querySelector(".wrapper .email-address span"),
+   phone = document.querySelector(".wrapper .phone-number span"),
+   country = document.getElementById("country"),
+   age = document.getElementById("age"),
+   generateBtn = document.querySelector("button"),
+   image = document.querySelector(".image-panel");
+
+   generateBtn.addEventListener("click",()=> {
+       generateFake();
+   });
+
+   function generateFake()
+   {
+        fetch("https://randomuser.me/api/")
+        .then(res => res.json())
+        .then(result => {
+            name.innerHTML = `Name - ${result.results[0].name.first} ${result.results[0].name.last}`;
+            email.innerHTML = `Email - ${result.results[0].email}`;
+            phone.innerHTML = `Phone - ${result.results[0].phone}`;
+            country.innerHTML = `Country - ${result.results[0].location.country}`;
+            age.innerHTML = `Age - ${result.results[0].registered.age}`;
+            image.style.background = `url("${result.results[0].picture.medium}`;
+            image.style.backgroundRepeat = "no-repeat";
+            image.style.backgroundSize = "cover";
+        });
+   }
+</script>
+</html>
