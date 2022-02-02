@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="image-panel"></div>
+    <div id="container">
+        <div class="image-panel"></div>
     <div class="wrapper">
         <header>Fake Details Generator</header>
         <div class="name">
@@ -30,6 +31,30 @@
     </div>
 
     <p>Click The Generate Button To Generate FAKE Details</p>
+    </div>
+    
+    <div id="mobile" >
+         <header>Fake Details Generator</header>
+        <div class="name">
+            <span>Name - John Doe</span>
+        </div>
+        <div class="email-address">
+            <span>Email - johndoe@gmail.com</span>
+        </div>
+        <div class="phone-number">
+            <span>Phone - 522-34567890</span>
+        </div>
+        <div class="phone-number">
+            <span id="country" >Country - Polar Region</span>
+        </div>
+        <div  class="phone-number">
+            <span id="age" >Age - 12</span>
+        </div>
+        <button id="generate">Generate</button>
+        
+          <p>Click The Generate Button To Generate FAKE Details</p>
+    </div>
+    
 </body>
 <script>
    const name = document.querySelector(".wrapper .name span"),
@@ -59,5 +84,18 @@
             image.style.backgroundSize = "cover";
         });
    }
+    
+    var isMobile = /iPhone|iPad|iPod|Android|i.test(navigator.userAgent);
+    var container = document.getElementById("container");
+    var Mobile = document.getElementById("mobile");
+    
+    if(isMobile) {
+        container.style.display ="none";
+        Mobile.style.display = "block";
+    }
+    else {
+         container.style.display ="block";
+        Mobile.style.display = "none";
+    }
 </script>
 </html>
