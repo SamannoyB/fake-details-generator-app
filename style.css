@@ -88,3 +88,7 @@ p
     font-weight: bold;
     font-family: Poppins;
 }
+#Mobile 
+{
+    display: none;
+}
