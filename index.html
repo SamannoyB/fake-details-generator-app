@@ -52,10 +52,7 @@
 
 
    function generateFake()
-   {
-        fetch("https://randomuser.me/api/")
-        .then(res => res.json())
-        .then(result => {
+    {
               let peoplee = '{"people":[' +
          '{"name": "Steve Dickson","email": "stevedickson@example.com","tel": "9088265405","age": "45","country":"Finland"},' +
          '{"name": "John Doe","email": "johndoe@example.com","tel": "525 636 787","age": "39","country": "Canada"},' +
@@ -86,9 +83,6 @@
             phone.innerHTML = "Phone: " + random.tel;
             country.innerHTML = "Country: " + random.country;
             age.innerHTML = "Age: " + random.age;
-            image.style.background = `url("${result.results[0].picture.medium}`;
-            image.style.backgroundRepeat = "no-repeat";
-            image.style.backgroundSize = "cover";
         });
    }
     
