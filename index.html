@@ -49,7 +49,14 @@
        generateFake();
    });
     
-     let peoplee = '{"people":[' +
+
+
+   function generateFake()
+   {
+        fetch("https://randomuser.me/api/")
+        .then(res => res.json())
+        .then(result => {
+              let peoplee = '{"people":[' +
          '{"name": "Steve Dickson","email": "stevedickson@example.com","tel": "9088265405","age": "45","country":"Finland"},' +
          '{"name": "John Doe","email": "johndoe@example.com","tel": "525 636 787","age": "39","country": "Canada"},' +
          '{"name": "James William","email": "jameswilliam@example.com","tel": "2438979573","age": "12","country": "Canada"},' + 
@@ -74,18 +81,11 @@
          
          var random =  obj.people[Math.floor(Math.random() * 19)];
         console.log(random)
-
-
-   function generateFake()
-   {
-        fetch("https://randomuser.me/api/")
-        .then(res => res.json())
-        .then(result => {
-            name.innerHTML = "Name " + random.name;
-            email.innerHTML = "Email " + random.email;
-            phone.innerHTML = "Phone " + random.tel;
-            country.innerHTML = "Country " + random.country;
-            age.innerHTML = "Email " + random.age;
+            name.innerHTML = "Name: " + random.name;
+            email.innerHTML = "Email: " + random.email;
+            phone.innerHTML = "Phone: " + random.tel;
+            country.innerHTML = "Country: " + random.country;
+            age.innerHTML = "Age: " + random.age;
             image.style.background = `url("${result.results[0].picture.medium}`;
             image.style.backgroundRepeat = "no-repeat";
             image.style.backgroundSize = "cover";
