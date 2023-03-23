@@ -46,14 +46,10 @@
    image = document.querySelector(".image-panel");
 
    generateBtn.addEventListener("click",()=> {
-       generateFake();
-   });
-    
+     
 
 
-   function generateFake()
-    {
-              let peoplee = '{"people":[' +
+         let peoplee = '{"people":[' +
          '{"name": "Steve Dickson","email": "stevedickson@example.com","tel": "9088265405","age": "45","country":"Finland"},' +
          '{"name": "John Doe","email": "johndoe@example.com","tel": "525 636 787","age": "39","country": "Canada"},' +
          '{"name": "James William","email": "jameswilliam@example.com","tel": "2438979573","age": "12","country": "Canada"},' + 
@@ -83,9 +79,7 @@
             phone.innerHTML = "Phone: " + random.tel;
             country.innerHTML = "Country: " + random.country;
             age.innerHTML = "Age: " + random.age;
-     
-   }
-    
-
+   });
+ 
 </script>
 </html>
